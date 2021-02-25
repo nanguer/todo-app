@@ -6,7 +6,11 @@ const todosReducer = (state, action) => {
     case "ADD_TODO":
       return [
         ...state,
-        { id: state.length + 1, name: action.todo, completed: false },
+        {
+          id: `${action.todo}${state.length}` + 1,
+          name: action.todo,
+          completed: false,
+        },
       ];
     case "COMPLETE_TODO":
       return state.map((todo) => {
@@ -43,7 +47,7 @@ const TodoContainer = () => {
       {todos.map((todo) => (
         <Todo key={`${todo.id}${todo.name}`} todo={todo} dispatch={dispatch} />
       ))}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           value={todo}
