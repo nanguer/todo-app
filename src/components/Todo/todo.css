@@ -1,0 +1,17 @@
+.todo__container {
+  display: flex;
+  padding: 5px;
+}
+
+.todo__container > div:nth-child(2) {
+  margin-left: 5px;
+}
+
+.todo__container > div:nth-child(2) button:first-child {
+  background-color: crimson;
+  margin-right: 5px;
+}
+
+.todo__container > div:nth-child(2) button:last-child {
+  background-color: cornflowerblue;
+}
