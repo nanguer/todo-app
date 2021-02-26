@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 
 const types = {
-  ADD_TODO: "ADD_TODO",
-  REMOVE_TODO: "REMOVE_TODO",
-  COMPLETE_TODO: "COMPLETE_TODO",
+  ADD_TODO: "todo/ADD_TODO",
+  REMOVE_TODO: "todo/REMOVE_TODO",
+  COMPLETE_TODO: "todo/COMPLETE_TODO",
 };
 
 export const doStartAddTodo = (todo) => ({ type: types.ADD_TODO, todo });
@@ -16,7 +16,7 @@ const initialState = {
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case types.ADD_TODO:
       return {
         ...state,
         todos: [
@@ -28,16 +28,16 @@ const todosReducer = (state = initialState, action) => {
           },
         ],
       };
-    case "COMPLETE_TODO":
-      const newArr = state.todos.map((todo) => {
+    case types.COMPLETE_TODO:
+      const newArrComplete = state.todos.map((todo) => {
         return todo.id === action.id
           ? { ...todo, completed: !todo.completed }
           : todo;
       });
-      return { ...state, todos: newArr };
-    case "REMOVE_TODO":
-      const newState = state.todos.filter((todo) => todo.id !== action.id);
-      return { ...state, todos: newState };
+      return { ...state, todos: newArrComplete };
+    case types.REMOVE_TODO:
+      const newArrRemove = state.todos.filter((todo) => todo.id !== action.id);
+      return { ...state, todos: newArrRemove };
 
     default:
       return state;

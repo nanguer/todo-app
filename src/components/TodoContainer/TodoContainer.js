@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Todo } from "../Todo";
 import { connect } from "react-redux";
-import { doStartAddTodo } from "../../ducks/todos";
+import { doStartAddTodo } from "../../redux/ducks/todos";
 
 const TodoContainer = ({ todos, addTodo }) => {
   const [todo, setTodo] = useState("");

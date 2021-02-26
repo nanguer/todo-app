@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { doStartRemoveTodo, doStartCompleteTodo } from "../../ducks/todos";
+import {
+  doStartRemoveTodo,
+  doStartCompleteTodo,
+} from "../../redux/ducks/todos";
 import "./todo.css";
 
 const Todo = ({ todo: { id, name, completed }, removeTodo, completeTodo }) => {
