@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import todosReducer from "./reducers/todos";
+import todosReducer from "./ducks/todos";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

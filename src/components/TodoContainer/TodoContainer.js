@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Todo } from "../Todo";
 import { connect } from "react-redux";
-import { startAddTodo } from "../actions/todos";
+import { doStartAddTodo } from "../../ducks/todos";
 
 const TodoContainer = ({ todos, addTodo }) => {
   const [todo, setTodo] = useState("");
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch(startAddTodo(todo)),
+  addTodo: (todo) => dispatch(doStartAddTodo(todo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

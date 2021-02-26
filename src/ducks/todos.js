@@ -1,5 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
 
+const types = {
+  ADD_TODO: "ADD_TODO",
+  REMOVE_TODO: "REMOVE_TODO",
+  COMPLETE_TODO: "COMPLETE_TODO",
+};
+
+export const doStartAddTodo = (todo) => ({ type: types.ADD_TODO, todo });
+export const doStartRemoveTodo = (id) => ({ type: types.REMOVE_TODO, id });
+export const doStartCompleteTodo = (id) => ({ type: types.COMPLETE_TODO, id });
+
 const initialState = {
   todos: [],
 };

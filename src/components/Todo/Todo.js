@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { startRemoveTodo, startCompleteTodo } from "../actions/todos";
+import { doStartRemoveTodo, doStartCompleteTodo } from "../../ducks/todos";
 import "./todo.css";
 
 const Todo = ({ todo: { id, name, completed }, removeTodo, completeTodo }) => {
@@ -27,8 +27,8 @@ const Todo = ({ todo: { id, name, completed }, removeTodo, completeTodo }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  removeTodo: (id) => dispatch(startRemoveTodo(id)),
-  completeTodo: (id) => dispatch(startCompleteTodo(id)),
+  removeTodo: (id) => dispatch(doStartRemoveTodo(id)),
+  completeTodo: (id) => dispatch(doStartCompleteTodo(id)),
 });
 
 export default connect(null, mapDispatchToProps)(Todo);
