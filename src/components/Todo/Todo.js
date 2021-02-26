@@ -1,14 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import { startRemoveTodo, startCompleteTodo } from "../actions/todos";
 import "./todo.css";
 
-const Todo = ({ todo: { id, name, completed }, dispatch }) => {
-  const handleCompleted = (id) => {
-    dispatch({ type: "COMPLETE_TODO", id });
-  };
-  const handleRemove = (id) => {
-    dispatch({ type: "REMOVE_TODO", id });
-  };
-
+const Todo = ({ todo: { id, name, completed }, removeTodo, completeTodo }) => {
   return (
     <div className="todo__container">
       <div
@@ -20,10 +15,10 @@ const Todo = ({ todo: { id, name, completed }, dispatch }) => {
       </div>
 
       <div>
-        <button className="button" onClick={() => handleRemove(id)}>
+        <button className="button" onClick={() => removeTodo(id)}>
           Remove
         </button>
-        <button className="button" onClick={() => handleCompleted(id)}>
+        <button className="button" onClick={() => completeTodo(id)}>
           {!completed ? "Done!" : "Not Done"}
         </button>
       </div>
@@ -31,4 +26,9 @@ const Todo = ({ todo: { id, name, completed }, dispatch }) => {
   );
 };
 
-export default Todo;
+const mapDispatchToProps = (dispatch) => ({
+  removeTodo: (id) => dispatch(startRemoveTodo(id)),
+  completeTodo: (id) => dispatch(startCompleteTodo(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Todo);
