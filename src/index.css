@@ -15,6 +15,9 @@ body {
   align-items: center;
   text-align: center;
 }
+.app_container div:last-of-type {
+  margin-top: 5px;
+}
 
 .button {
   border: none;
@@ -23,11 +26,25 @@ body {
   color: #fff;
   cursor: pointer;
   padding: 5px 10px;
+  margin: 0 4px;
 }
 
 button:focus {
   outline: none;
   filter: opacity(0.7);
+}
+
+button:disabled {
+  color: lightgrey;
+  border: none;
+  background-color: unset;
+  cursor: default;
+}
+
+.btn-sec {
+  color: cadetblue;
+  border: 1px solid;
+  background-color: white;
 }
 
 form {
